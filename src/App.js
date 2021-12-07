@@ -3,6 +3,7 @@ import './App.css';
 import Home from './views/Home/Home.jsx';
 import PlayerList from './views/Players/PlayerList.jsx';
 import TeamList from './views/Team/TeamList.jsx';
+import TeamDetail from './views/Team/TeamDetail.jsx';
 
 function App() {
   return (
@@ -23,6 +24,9 @@ function App() {
         <Switch>
           <Route path='/players'>
             <PlayerList />
+          </Route>
+          <Route path='/teams/:id'>
+            <TeamDetail />
           </Route>
           <Route path='/teams'>
             <TeamList />
