@@ -4,6 +4,7 @@ import Home from './views/Home/Home.jsx';
 import PlayerList from './views/Players/PlayerList.jsx';
 import TeamList from './views/Team/TeamList.jsx';
 import TeamDetail from './views/Team/TeamDetail.jsx';
+import PlayerDetail from './views/Players/PlayerDetail.jsx';
 
 function App() {
   return (
@@ -22,6 +23,9 @@ function App() {
         </nav>
 
         <Switch>
+          <Route path='/players/:id'>
+            <PlayerDetail />
+          </Route>
           <Route path='/players'>
             <PlayerList />
           </Route>
