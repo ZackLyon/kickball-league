@@ -2,8 +2,20 @@
 
 exports[`should render the Home view 1`] = `
 <div>
-  <div>
-    Home
+  <div
+    class="home-page"
+    style="background-image: url(kickball.jpg);"
+  >
+    <div
+      class="kickball-title"
+    >
+      PNW Kickball League
+    </div>
+    <div
+      class="acknowledgement"
+    >
+      Photo by cottonbro from Pexels
+    </div>
   </div>
 </div>
 `;
