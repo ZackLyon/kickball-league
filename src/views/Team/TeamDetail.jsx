@@ -13,8 +13,6 @@ export default function TeamDetail() {
 
   if (!team) return <div>Loading</div>;
 
-  console.log(team.players);
-
   return (
     <div>
       <h1>{team.name}</h1>

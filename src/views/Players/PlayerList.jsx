@@ -9,17 +9,17 @@ export default function PlayerList() {
     getPlayers().then((players) => setPlayers(players));
   }, []);
 
-  if (!players) return <div>Loading...</div>;
-  console.log(players);
+  if (!players.length) return <div>Loading...</div>;
+
   return (
     <div>
       <ul>
         {players.map(({ name, position, id }) => (
-          <Link to={`/players/${id}`}>
-            <li key={id}>
+          <li key={id}>
+            <Link to={`/players/${id}`}>
               {position} : {name}
-            </li>
-          </Link>
+            </Link>
+          </li>
         ))}
       </ul>
     </div>

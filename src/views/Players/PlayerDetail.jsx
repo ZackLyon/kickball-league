@@ -11,7 +11,7 @@ export default function PlayerDetail() {
   }, [id]);
 
   if (!player) return <div>Loading...</div>;
-  console.log(player);
+
   return (
     <div>
       <h1>{player.name}</h1>

@@ -11,13 +11,12 @@ export default function TeamList() {
 
   if (!teams.length) return <div>Loading</div>;
 
-  console.log(teams);
   return (
     <ul>
       {teams.map((team) => (
-        <Link to={`/teams/${team.id}`}>
-          <li key={team.id}>{team.name}</li>
-        </Link>
+        <li key={team.id}>
+          <Link to={`/teams/${team.id}`}>{team.name}</Link>
+        </li>
       ))}
     </ul>
   );
