@@ -12,7 +12,7 @@ it('should render a player detail view', async () => {
   const loading = screen.getByText(/Loading/i);
   expect(loading).toBeInTheDocument();
 
-  const player = await screen.findByText(/Kara Whollot/i);
+  const player = await screen.findByText(/Team/i);
 
   expect(player).toBeInTheDocument();
 });

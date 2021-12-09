@@ -14,6 +14,7 @@ export default function TeamList() {
 
   return (
     <div style={{ backgroundImage: 'url(team.jpg)' }} className='team-page'>
+      <h1>List of Teams</h1>
       <ul>
         {teams.map((team) => (
           <li key={team.id}>

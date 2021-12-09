@@ -17,6 +17,7 @@ export default function PlayerList() {
       style={{ backgroundImage: 'url(players.jpg)' }}
       className='players-page'
     >
+      <h1>List of Players</h1>
       <ul>
         {players.map(({ name, position, id }) => (
           <li key={id}>
