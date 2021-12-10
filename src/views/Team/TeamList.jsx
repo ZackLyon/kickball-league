@@ -7,7 +7,7 @@ export default function TeamList() {
   const [teams, setTeams] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  const handleDelete = ({ id }) => {
+  const handleDelete = (id) => {
     deleteTeamById(id).then(() => freshenTeams());
   };
 
@@ -31,7 +31,7 @@ export default function TeamList() {
           {teams.map(({ id, name }) => (
             <li key={id}>
               <Link to={`/teams/${id}`}>{name}</Link>
-              <button onClick={() => handleDelete({ id })}>DELETE</button>
+              <button onClick={() => handleDelete(id)}>DELETE</button>
               <Link to={`/teams/update/${id}`}>
                 <button>UPDATE</button>
               </Link>

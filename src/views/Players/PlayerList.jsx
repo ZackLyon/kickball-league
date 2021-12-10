@@ -1,13 +1,20 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { getPlayers } from '../../services/players.js';
+import { deletePlayerById, getPlayers } from '../../services/players.js';
 import './Player.css';
 
 export default function PlayerList() {
   const [players, setPlayers] = useState([]);
 
-  useEffect(() => {
+  const freshenPlayers = () => {
     getPlayers().then((players) => setPlayers(players));
+  };
+  const handleDelete = (id) => {
+    deletePlayerById(id).then(() => freshenPlayers());
+  };
+
+  useEffect(() => {
+    freshenPlayers();
   }, []);
 
   if (!players.length) return <div>Loading...</div>;
@@ -24,8 +31,9 @@ export default function PlayerList() {
             <Link to={`/players/${id}`}>
               {position} : {name}
             </Link>
+            <button onClick={() => handleDelete(id)}>DELETE</button>
             <Link to={`/players/update/${id}`}>
-              <button>Update</button>
+              <button>UPDATE</button>
             </Link>
           </li>
         ))}
