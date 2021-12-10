@@ -8,6 +8,7 @@ export default function CreatePlayer() {
   const [position, setPosition] = useState('');
   const [teamId, setTeamId] = useState(1);
   const history = useHistory();
+  const isCreate = true;
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -21,13 +22,13 @@ export default function CreatePlayer() {
     <div>
       <PlayerForm
         {...{
+          isCreate,
           name,
           setName,
           position,
           setPosition,
-          teamId,
-          setTeamId,
           handleSubmit,
+          setTeamId,
         }}
       />
     </div>

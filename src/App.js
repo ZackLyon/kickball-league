@@ -8,6 +8,7 @@ import PlayerDetail from './views/Players/PlayerDetail.jsx';
 import CreateTeam from './views/Team/CreateTeam.jsx';
 import UpdateTeam from './views/Team/UpdateTeam.jsx';
 import CreatePlayer from './views/Players/CreatePlayer.jsx';
+import UpdatePlayer from './views/Players/UpdatePlayer.jsx';
 
 function App() {
   return (
@@ -34,6 +35,9 @@ function App() {
         <Switch>
           <Route path='/players/freshplayer'>
             <CreatePlayer />
+          </Route>
+          <Route path='/players/update/:id'>
+            <UpdatePlayer />
           </Route>
           <Route path='/players/:id'>
             <PlayerDetail />

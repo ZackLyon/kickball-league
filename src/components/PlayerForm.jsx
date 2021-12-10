@@ -2,12 +2,13 @@ import React, { useState, useEffect } from 'react';
 import { getTeams } from '../services/teams.js';
 
 export default function PlayerForm({
+  isCreate,
   name,
   setName,
   position,
   setPosition,
-  setTeamId,
   handleSubmit,
+  setTeamId,
 }) {
   const [teams, setTeams] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -42,14 +43,18 @@ export default function PlayerForm({
           onChange={(e) => setPosition(e.target.value)}
         ></input>
       </label>
-      <label>
-        Team:
-        <select onChange={(e) => setTeamId(e.target.value)}>
-          {teams.map(({ name, id }) => (
-            <option value={id}>{name}</option>
-          ))}
-        </select>
-      </label>
+      {isCreate ? (
+        <label>
+          Team:
+          <select onChange={(e) => setTeamId(e.target.value)}>
+            {teams.map((team) => (
+              <option value={team.id}>{team.name}</option>
+            ))}
+          </select>
+        </label>
+      ) : (
+        ''
+      )}
       <button type='submit'>Submit</button>
     </form>
   );

@@ -24,6 +24,9 @@ export default function PlayerList() {
             <Link to={`/players/${id}`}>
               {position} : {name}
             </Link>
+            <Link to={`/players/update/${id}`}>
+              <button>Update</button>
+            </Link>
           </li>
         ))}
       </ul>
