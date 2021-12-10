@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { getTeamById, updateTeamById } from '../../services/teams.js';
 import { useHistory, useParams } from 'react-router-dom';
+import TeamForm from '../../components/TeamForm.jsx';
 
 export default function UpdateTeam() {
   const [name, setName] = useState('');
@@ -27,33 +28,9 @@ export default function UpdateTeam() {
 
   return (
     <div>
-      <form onSubmit={(e) => handleSubmit(e)}>
-        <label>
-          Name:
-          <input
-            type='text'
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-          ></input>
-        </label>
-        <label>
-          City:
-          <input
-            type='text'
-            value={city}
-            onChange={(e) => setCity(e.target.value)}
-          ></input>
-        </label>
-        <label>
-          State:
-          <input
-            type='text'
-            value={state}
-            onChange={(e) => setState(e.target.value)}
-          ></input>
-        </label>
-        <button type='submit'>Submit</button>
-      </form>
+      <TeamForm
+        {...{ name, setName, city, setCity, state, setState, handleSubmit }}
+      />
     </div>
   );
 }

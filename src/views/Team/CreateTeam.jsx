@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { createTeam } from '../../services/teams.js';
 import { useHistory } from 'react-router-dom';
+import TeamForm from '../../components/TeamForm.jsx';
 
 export default function CreateTeam() {
   const [name, setName] = useState('');
@@ -18,21 +19,9 @@ export default function CreateTeam() {
 
   return (
     <div>
-      <form onSubmit={(e) => handleSubmit(e)}>
-        <label>
-          Name:
-          <input type='text' onChange={(e) => setName(e.target.value)}></input>
-        </label>
-        <label>
-          City:
-          <input type='text' onChange={(e) => setCity(e.target.value)}></input>
-        </label>
-        <label>
-          State:
-          <input type='text' onChange={(e) => setState(e.target.value)}></input>
-        </label>
-        <button type='submit'>Submit</button>
-      </form>
+      <TeamForm
+        {...{ name, setName, city, setCity, state, setState, handleSubmit }}
+      />
     </div>
   );
 }
