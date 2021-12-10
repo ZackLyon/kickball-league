@@ -7,6 +7,7 @@ import TeamDetail from './views/Team/TeamDetail.jsx';
 import PlayerDetail from './views/Players/PlayerDetail.jsx';
 import CreateTeam from './views/Team/CreateTeam.jsx';
 import UpdateTeam from './views/Team/UpdateTeam.jsx';
+import CreatePlayer from './views/Players/CreatePlayer.jsx';
 
 function App() {
   return (
@@ -25,9 +26,15 @@ function App() {
           <div>
             <Link to='/teams/freshteam'>Create Team</Link>
           </div>
+          <div>
+            <Link to='/players/freshplayer'>Create Player</Link>
+          </div>
         </nav>
 
         <Switch>
+          <Route path='/players/freshplayer'>
+            <CreatePlayer />
+          </Route>
           <Route path='/players/:id'>
             <PlayerDetail />
           </Route>
