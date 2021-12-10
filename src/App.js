@@ -6,6 +6,7 @@ import TeamList from './views/Team/TeamList.jsx';
 import TeamDetail from './views/Team/TeamDetail.jsx';
 import PlayerDetail from './views/Players/PlayerDetail.jsx';
 import CreateTeam from './views/Team/CreateTeam.jsx';
+import UpdateTeam from './views/Team/UpdateTeam.jsx';
 
 function App() {
   return (
@@ -35,6 +36,9 @@ function App() {
           </Route>
           <Route path='/teams/freshteam'>
             <CreateTeam />
+          </Route>
+          <Route path='/teams/update/:id'>
+            <UpdateTeam />
           </Route>
           <Route path='/teams/:id'>
             <TeamDetail />

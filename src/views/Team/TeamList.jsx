@@ -1,27 +1,44 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { getTeams } from '../../services/teams.js';
+import { deleteTeamById, getTeams } from '../../services/teams.js';
 import './Team.css';
 
 export default function TeamList() {
   const [teams, setTeams] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  const handleDelete = ({ id }) => {
+    deleteTeamById(id).then(() => freshenTeams());
+  };
+
+  const freshenTeams = () => {
+    getTeams()
+      .then((newTeams) => setTeams(newTeams))
+      .then(() => setLoading(false));
+  };
 
   useEffect(() => {
-    getTeams().then((newTeams) => setTeams(newTeams));
+    freshenTeams();
   }, []);
-
-  if (!teams.length) return <div>Loading</div>;
 
   return (
     <div style={{ backgroundImage: 'url(team.jpg)' }} className='team-page'>
       <h1>List of Teams</h1>
-      <ul>
-        {teams.map((team) => (
-          <li key={team.id}>
-            <Link to={`/teams/${team.id}`}>{team.name}</Link>
-          </li>
-        ))}
-      </ul>
+      {loading ? (
+        <div>Loading</div>
+      ) : (
+        <ul>
+          {teams.map(({ id, name }) => (
+            <li key={id}>
+              <Link to={`/teams/${id}`}>{name}</Link>
+              <button onClick={() => handleDelete({ id })}>DELETE</button>
+              <Link to={`/teams/update/${id}`}>
+                <button>UPDATE</button>
+              </Link>
+            </li>
+          ))}
+        </ul>
+      )}
       <div className='acknowledgement'>
         Photo by Dio Hasbi Saniskoro from Pexels
       </div>

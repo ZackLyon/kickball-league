@@ -18,7 +18,9 @@ export default function TeamDetail() {
   return (
     <div style={{ backgroundImage: `url(${teamPic})` }} className='team-page'>
       <h1>Team: {team.name}</h1>
-      <h3>From: {team.city}</h3>
+      <h3>
+        From: {team.city}, {team.state}
+      </h3>
       <ul>
         {team.players
           ? team.players.map((player) => (
