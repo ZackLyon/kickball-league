@@ -28,8 +28,11 @@ export default function PlayerList() {
       <ul>
         {players.map(({ name, position, id }) => (
           <li key={id}>
-            <Link to={`/players/${id}`}>
+            <span>
               {position} : {name}
+            </span>
+            <Link to={`/players/${id}`}>
+              <button>VIEW</button>
             </Link>
             <button onClick={() => handleDelete(id)}>DELETE</button>
             <Link to={`/players/update/${id}`}>

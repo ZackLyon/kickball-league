@@ -30,7 +30,10 @@ export default function TeamList() {
         <ul>
           {teams.map(({ id, name }) => (
             <li key={id}>
-              <Link to={`/teams/${id}`}>{name}</Link>
+              <span>{name}</span>
+              <Link to={`/teams/${id}`}>
+                <button>VIEW</button>
+              </Link>
               <button onClick={() => handleDelete(id)}>DELETE</button>
               <Link to={`/teams/update/${id}`}>
                 <button>UPDATE</button>

@@ -35,7 +35,9 @@ export default function TeamForm({
           onChange={(e) => setState(e.target.value)}
         ></input>
       </label>
-      <button type='submit'>Submit</button>
+      <button type='submit' aria-label='submit'>
+        Submit
+      </button>
     </form>
   );
 }

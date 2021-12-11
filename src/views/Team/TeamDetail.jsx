@@ -8,12 +8,15 @@ import teamPic from '../../assets/team.jpg';
 export default function TeamDetail() {
   const { id } = useParams();
   const [team, setTeam] = useState(null);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    getTeamById(id).then((newTeam) => setTeam(newTeam));
+    getTeamById(id)
+      .then((newTeam) => setTeam(newTeam))
+      .finally(() => setLoading(false));
   }, [id]);
 
-  if (!team) return <div>Loading</div>;
+  if (loading) return <div>Loading</div>;
 
   return (
     <div style={{ backgroundImage: `url(${teamPic})` }} className='team-page'>

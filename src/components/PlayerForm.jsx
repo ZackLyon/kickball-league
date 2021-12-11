@@ -48,7 +48,9 @@ export default function PlayerForm({
           Team:
           <select onChange={(e) => setTeamId(e.target.value)}>
             {teams.map((team) => (
-              <option value={team.id}>{team.name}</option>
+              <option key={team.id} value={team.id}>
+                {team.name}
+              </option>
             ))}
           </select>
         </label>
