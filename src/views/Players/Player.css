@@ -1,0 +1,28 @@
+.players-page {
+  width: 100vw;
+  height: 100vh;
+  background-size: cover;
+  background-repeat: none;
+}
+
+ul {
+  height: fit-content;
+  width: fit-content;
+  background-color: rgba(255, 255, 255, 0.558);
+  padding: 5vh;
+  margin-top: 0;
+  list-style: none;
+}
+
+li {
+  margin: 1vh;
+  text-decoration: none;
+}
+
+li > * {
+  color: black;
+  font-size: 1.2rem;
+  cursor: pointer;
+  text-decoration: none;
+  font-weight: bold;
+}
