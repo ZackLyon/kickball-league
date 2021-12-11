@@ -48,4 +48,3 @@ export default function PlayerList() {
     </div>
   );
 }
-// ci issue; need to make change
