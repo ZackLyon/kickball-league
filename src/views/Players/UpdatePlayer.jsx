@@ -13,8 +13,7 @@ export default function UpdatePlayer() {
 
   useEffect(() => {
     getPlayerById(id)
-      .then(({ name, position, team_id }) => {
-        console.log(team_id);
+      .then(({ name, position }) => {
         setName(name);
         setPosition(position);
       })

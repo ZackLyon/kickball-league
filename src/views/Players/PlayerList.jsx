@@ -5,9 +5,12 @@ import './Player.css';
 
 export default function PlayerList() {
   const [players, setPlayers] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   const freshenPlayers = () => {
-    getPlayers().then((players) => setPlayers(players));
+    getPlayers()
+      .then((players) => setPlayers(players))
+      .then(() => setLoading(false));
   };
   const handleDelete = (id) => {
     deletePlayerById(id).then(() => freshenPlayers());
@@ -17,7 +20,7 @@ export default function PlayerList() {
     freshenPlayers();
   }, []);
 
-  if (!players.length) return <div>Loading...</div>;
+  if (loading) return <div>Loading...</div>;
 
   return (
     <div
