@@ -74,7 +74,7 @@ it('should allow a user to create a new player and redirect to the player detail
 
   userEvent.type(name, 'test name');
   userEvent.type(position, 'umpire');
-  // userEvent.click(submit);
+  userEvent.click(submit);
 
   await screen.findByText(/umpire/i);
 });

@@ -25,7 +25,7 @@ export default function TeamDetail() {
         From: {team.city}, {team.state}
       </h3>
       <ul>
-        {team.players
+        {team.players.length
           ? team.players.map((player) => (
               <li key={player.id}>
                 <span>{player.position}</span> : {player.name}

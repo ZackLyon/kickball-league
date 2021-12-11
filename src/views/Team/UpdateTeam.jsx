@@ -23,7 +23,7 @@ export default function UpdateTeam() {
 
     await updateTeamById(id, { name, city, state });
 
-    history.push(`/teams`);
+    history.push(`/teams/${id}`);
   };
 
   return (

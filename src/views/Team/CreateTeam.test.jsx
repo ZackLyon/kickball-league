@@ -64,7 +64,7 @@ it('should allow a user to create a new team and redirect to the team detail vie
   userEvent.type(name, 'test name');
   userEvent.type(city, 'kalamazoo');
   userEvent.type(state, 'OR');
-  // userEvent.click(submit);
+  userEvent.click(submit);
 
   await waitForElementToBeRemoved(() => screen.queryByText(/loading/i));
 

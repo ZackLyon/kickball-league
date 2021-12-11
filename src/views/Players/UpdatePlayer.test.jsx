@@ -3,7 +3,7 @@ import {
   screen,
   waitForElementToBeRemoved,
 } from '@testing-library/react';
-// import userEvent from '@testing-library/user-event';
+import userEvent from '@testing-library/user-event';
 import { setupServer } from 'msw/node';
 import { rest } from 'msw';
 import { createMemoryHistory } from 'history';
@@ -70,7 +70,7 @@ it('should allow a user to update a player and redirect to the player list view'
 
   const submit = screen.getByRole('button', { name: /submit/i });
 
-  // userEvent.click(submit);
+  userEvent.click(submit);
 
   await screen.findByText(/test name/i);
 });
